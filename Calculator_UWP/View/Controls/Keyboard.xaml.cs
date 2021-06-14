@@ -11,6 +11,9 @@ namespace Calculator_UWP.View.Controls
 {
 	public sealed partial class Keyboard : UserControl
 	{
+		public delegate void KeyTapEventHandler(char key);
+		public event KeyTapEventHandler KeyTap;
+
 		enum AriphmeticKeys
 		{
 			Division,
@@ -26,18 +29,29 @@ namespace Calculator_UWP.View.Controls
 
 		private void Key_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
 		{
-			var qwe = sender as ContentPresenter;
-			string examle = "-5+5*3,3455^4/1";
-
-			var p = new Parser();
-			if(p.Evaluate(examle))
+			var obj = sender as ContentPresenter;
+			if (obj.Tag != null)
 			{
-				double weeeee = p.Result;
+				KeyTap?.Invoke(Convert.ToChar(obj.Tag));
 			}
 			else
 			{
-				// error
+				KeyTap?.Invoke(Convert.ToChar(obj.Content));
 			}
+			//KeyTap.Invoke(())
+
+			//var qwe = sender as ContentPresenter;
+			//string examle = "(-5+5)*3,3455^4/1";
+
+			//var p = new Parser();
+			//if(p.Evaluate(examle))
+			//{
+			//	double weeeee = p.Result;
+			//}
+			//else
+			//{
+			//	// error
+			//}
 		}
 	}
 }

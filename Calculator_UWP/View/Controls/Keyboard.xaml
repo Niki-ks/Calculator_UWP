@@ -12,7 +12,7 @@
 			<x:Double x:Key="AriphmeticalButtonSize">32</x:Double>
 			<Style x:Key="CustomButtonStyle" TargetType="Button">
 				<Setter Property="CornerRadius" Value="10" />
-				<Setter Property="FontSize" Value="42" />
+				<Setter Property="FontSize" Value="32" />
 				<Setter Property="Margin" Value="2" />
 				<Setter Property="HorizontalAlignment" Value="Stretch" />
 				<Setter Property="VerticalAlignment" Value="Stretch" />
@@ -38,7 +38,7 @@
 									<VisualStateGroup>
 										<VisualState>
 											<VisualState.StateTriggers>
-												<AdaptiveTrigger MinWindowHeight="600"/>
+												<AdaptiveTrigger MinWindowHeight="700"/>
 											</VisualState.StateTriggers>
 											<VisualState.Setters>
 												<Setter Target="ContentPresenter.FontSize" Value="64"/>
@@ -182,7 +182,7 @@
 			Style="{StaticResource CustomButtonStyle}" />
 
 		<Button
-			Tag="0"
+			Tag="/"
 			Grid.Row="0"
 			Grid.Column="3"
 			Style="{StaticResource CustomButtonStyle}">
@@ -192,7 +192,7 @@
 				Glyph="&#xE94A;" />
 		</Button>
 		<Button
-			Tag="1"
+			Tag="*"
 			Grid.Row="1"
 			Grid.Column="3"
 			Style="{StaticResource CustomButtonStyle}">
@@ -202,7 +202,7 @@
 				Glyph="&#xE106;" />
 		</Button>
 		<Button
-			Tag="2"
+			Tag="-"
 			Grid.Row="2"
 			Grid.Column="3"
 			Style="{StaticResource CustomButtonStyle}">
@@ -212,7 +212,7 @@
 				Glyph="&#xE108;" />
 		</Button>
 		<Button
-			Tag="3"
+			Tag="+"
 			Grid.Row="3"
 			Grid.Column="3"
 			Style="{StaticResource CustomButtonStyle}">

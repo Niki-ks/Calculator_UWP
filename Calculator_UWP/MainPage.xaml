@@ -1,13 +1,26 @@
-﻿<Page 
-	xmlns:my="using:Calculator_UWP.View.Controls" 
-    x:Class="Calculator_UWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Calculator_UWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+﻿<Page
+	x:Class="Calculator_UWP.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:Calculator_UWP"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:my="using:Calculator_UWP.View.Controls"
+	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+	mc:Ignorable="d"
+	x:Name="RootGrid" >
 
-	<my:Keyboard />
+	<Grid VerticalAlignment="Stretch" SizeChanged="Grid_SizeChanged" KeyDown="Grid_KeyDown">
+		<Grid.RowDefinitions>
+			<RowDefinition x:Name="I1" MinHeight="100" MaxHeight="400" />
+			<RowDefinition x:Name="I2" MinHeight="400" />
+		</Grid.RowDefinitions>
+		<Viewbox
+			Grid.Row="0"
+			HorizontalAlignment="Right"
+			Stretch="Uniform">
+			<my:IOTextBox x:Name="ioTB" />
+		</Viewbox>
+		<my:Keyboard x:Name="key" Grid.Row="1" />
+	</Grid>
 </Page>
